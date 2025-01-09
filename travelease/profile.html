@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - TravelEase</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Reset & Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background: linear-gradient(180deg, #d6eaf8 0%, #ffffff 100%);
+            color: #333;
+            box-sizing: border-box;
+        }
+
+        /* Global Styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 1px 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 40px;
+            margin-right: 10px;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            color: #438dc2;
+        }
+
+        nav {
+            display: flex;
+            gap: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #438dc2;
+            font-weight: 600;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #438dc2;
+            color: white;
+        }
+
+        /* Login Section */
+        .login-container {
+            padding: 40px 30px;
+            max-width: 400px;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            animation: slideIn 0.6s ease-in-out;
+        }
+
+        .login-container h2 {
+            font-size: 1.5rem;
+            color: #438dc2;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+        }
+
+        .login-container form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .login-container input {
+            width: 96%;
+            padding: 14px 16px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .login-container input:focus {
+            outline: none;
+            border-color: #438dc2;
+            box-shadow: 0 0 8px rgba(67, 141, 194, 0.5);
+        }
+
+        .login-container button {
+            background-color: #438dc2;
+            color: white;
+            padding: 11px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .login-container button:hover {
+            background-color: #3678a3;
+            transform: translateY(-3px);
+        }
+
+        .login-container p {
+            margin: 20px 0 10px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* Social Buttons */
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .social-buttons a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 1.8rem;
+            color: white;
+            transition: all 0.3s ease;
+            margin: 0 25px;
+        }
+
+        .google-btn {
+            background-color: #db4437;
+        }
+
+        .facebook-btn {
+            background-color: #4267B2;
+        }
+
+        .social-buttons a:hover {
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #ffffff;
+            color: #555;
+            margin-top: 0px;
+            font-size: 0.9rem;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .profile-container {
+                flex-direction: column;
+                align-items: center;
+                padding: 20px;
+            }
+
+            .profile-container .profile-left {
+                margin-bottom: 20px;
+            }
+
+            .profile-container h2 {
+                font-size: 1.8rem;
+            }
+
+            .profile-container p {
+                font-size: 1rem;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile-container h2 {
+                font-size: 1.6rem;
+            }
+
+            .profile-container p {
+                font-size: 0.9rem;
+            }
+
+            .edit-btn {
+                padding: 10px 25px;
+                font-size: 1rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes slideIn {
+            0% {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+        
+            <h1>Travel Planner</h1>
+        </div>
+        <nav>
+            <a href="index.html">Beranda</a>
+            <a href="destinations.html">Destinasi</a>
+            <a href="plan.html">Rencana</a>
+            <a href="profile.html">Profil</a>
+        </nav>
+    </header>
+
+    <div class="login-container">
+        <h2>Buat Akun Anda</h2>
+        <form id="loginForm">
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <p>Atau login dengan:</p>
+
+        <div class="social-buttons">
+            <a href="https://accounts.google.com/o/oauth2/auth?client_id=YOUR_GOOGLE_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI&response_type=code&scope=profile email" class="google-btn">
+                <i class="fab fa-google"></i>
+            </a>
+            <a href="https://www.facebook.com/v10.0/dialog/oauth?client_id=YOUR_FACEBOOK_APP_ID&redirect_uri=YOUR_REDIRECT_URI&state=YOUR_STATE_PARAM" class="facebook-btn">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; Travel Planner © 2025 | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // Fungsi untuk menangani login
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Mencegah form mengirimkan data secara default
+
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            // Contoh validasi sederhana (untuk aplikasi nyata, gunakan API)
+            if (email === 'user' && password === 'password') {
+                sessionStorage.setItem("userLoggedIn", username);
+                window.location.href = "profile.html";
+            } else {
+                alert("Username atau kata sandi salah!");
+            }
+        });
+    </script>
+</body>
+</html>

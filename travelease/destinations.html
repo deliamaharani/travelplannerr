@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelEase - Destinasi</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background: linear-gradient(180deg, #d6eaf8 0%, #ffffff 100%); /* Gradasi halus dari biru muda ke putih */
+            color: #333;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+
+        /* Global Styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 1px 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.5s ease;
+        }
+
+        header.scrolled {
+            background-color: #438dc2;
+            color: white;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 40px;
+            margin-right: 10px;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            color: #438dc2;
+        }
+
+        nav {
+            display: flex;
+            gap: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #438dc2;
+            font-weight: 600;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #438dc2;
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            background-image: url('images/hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 70px 20px 20px 20px; /* Sesuaikan padding */
+            color: #438dc2;
+            position: relative;
+            margin-bottom: 0; /* Menghapus jarak bawah */
+            background: linear-gradient(180deg, rgba(72, 126, 196, 0.4), rgba(255, 255, 255, 0.6)), url('images/hero-bg.jpg'); /* Gradasi overlay di atas gambar */
+        }   
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        /* Destinasi Section */
+        .destination-section {
+            padding: 50px 20px;
+            background-color: #f0f8ff;
+        }
+
+        .destination-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .destination-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: slideInUp 0.6s ease-out;
+        }
+
+        .destination-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .destination-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .destination-card h3 {
+            position: absolute;
+            bottom: 140px;
+            left: 6px;
+            color: white;
+            font-size: 1.3em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            margin: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 8px 12px;
+            border-radius: 5px;
+        }
+
+        .destination-card p {
+            text-align: center;
+            padding: 10px;
+            font-size: 1.1em;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #ffffff;
+            color: #555;
+            margin-top: 0px;
+            font-size: 0.9rem;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            .destination-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            
+            <h1>Travel Planner</h1>
+        </div>
+        <nav>
+            <a href="index.html">Beranda</a>
+            <a href="destinations.html">Destinasi</a>
+            <a href="plan.html">Rencana</a>
+            <a href="profile.html">Profil</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>Destinasi Terbaik di Dunia</h1>
+        <p>Jelajahi destinasi menakjubkan di seluruh dunia untuk liburan yang tak terlupakan.</p>
+    </div>
+
+    <div class="destination-section">
+        <div class="destination-grid">
+            <!-- Bali -->
+            <div class="destination-card">
+                <img src="images/Bali.jpg" alt="Bali">
+                <h3>Bali, Indonesia</h3>
+                <p>Jelajahi pantai-pantai indah di Bali, yang terkenal dengan budaya yang kaya dan pemandangan alam yang menakjubkan.</p>
+            </div>
+            <!-- Paris -->
+            <div class="destination-card">
+                <img src="images/Paris.jpg" alt="Paris">
+                <h3>Paris, Prancis</h3>
+                <p>Rasakan romansa dan keanggunan Paris, dengan landmark ikonik seperti Menara Eiffel dan Museum Louvre.</p>
+            </div>
+            <!-- Tokyo -->
+            <div class="destination-card">
+                <img src="images/ Tokyo.jpg" alt="Tokyo">
+                <h3>Tokyo, Jepang</h3>
+                <p>Temukan kota Tokyo yang ramai, dikenal dengan budaya jalanan yang hidup, teknologi, dan kuliner yang menggoda.</p>
+            </div>
+            <!-- New York -->
+            <div class="destination-card">
+                <img src="images/ NYC.jpg" alt="New York City">
+                <h3>New York, Amerika Serikat</h3>
+                <p>Jelajahi Big Apple dengan pemandangan ikoniknya, Times Square, Central Park, dan pertunjukan Broadway.</p>
+            </div>
+            <!-- Sydney -->
+            <div class="destination-card">
+                <img src="images/Sydney.jpg" alt="Sydney">
+                <h3>Sydney, Australia</h3>
+                <p>Terkenal dengan Opera House-nya, pantai-pantai yang indah, dan budaya yang hidup, Sydney adalah destinasi yang wajib dikunjungi.</p>
+            </div>
+            <!-- Rome -->
+            <div class="destination-card">
+                <img src="images/Rome.jpg" alt="Rome">
+                <h3>Roma, Italia</h3>
+                <p>Jelajahi landmark kuno Roma, termasuk Colosseum, Forum Romawi, dan Vatikan.</p>
+            </div>
+            <!-- Dubai -->
+            <div class="destination-card">
+                <img src="images/Dubai.jpg" alt="Dubai">
+                <h3>Dubai, UAE</h3>
+                <p>Temukan keajaiban modern Dubai, dari gedung pencakar langit yang menjulang tinggi hingga pusat perbelanjaan terbesar di dunia.</p>
+            </div>
+            <!-- Maldives -->
+            <div class="destination-card">
+                <img src="images/Seoul.jpg" alt="Maldives">
+                <h3>Seoul, Korea Selatan</h3>
+                <p>Jelajahi ibu kota Korea Selatan yang penuh energi dengan kombinasi budaya tradisional dan modern, serta tempat belanja yang menarik.</p>
+            </div>
+            <!-- Cape Town -->
+            <div class="destination-card">
+                <img src="images/Cape Town.jpg" alt="Cape Town">
+                <h3>Cape Town, Afrika Selatan</h3>
+                <p>Jelajahi kota Cape Town yang hidup dengan pantai-pantai indah, Gunung Meja, dan budaya yang kaya.</p>
+            </div>
+            <!-- Kyoto -->
+            <div class="destination-card">
+                <img src="images/London.jpg" alt="Kyoto">
+                <h3>London, Inggris</h3>
+                <p>Jelajahi keindahan London dengan ikon-ikon seperti Big Ben, Buckingham Palace, dan Tower of London yang kaya akan sejarah.</p>
+            </div>
+            <!-- Seoul -->
+            <div class="destination-card">
+                <img src="images/Singapore.jpg" alt="Seoul">
+                <h3>Singapore, Singapura</h3>
+                <p>Temukan kemegahan kota Singapore, dengan Marina Bay Sands, Gardens by the Bay, dan tempat-tempat belanja kelas dunia.</p>
+            </div>
+            <!-- Beijing -->
+            <div class="destination-card">
+                <img src="images/Beijing.jpg" alt="Beijing">
+                <h3>Beijing, China</h3>
+                <p>Temukan keajaiban sejarah di Beijing, termasuk Tembok Besar China, Kota Terlarang, dan Istana Musim Panas.</p>
+            </div>
+             <!-- Santorini -->
+             <div class="destination-card">
+                <img src="images/ Santorini.jpg" alt="Santorini">
+                <h3>Santorini, Yunani</h3>
+                <p>Rasakan keindahan rumah-rumah putih dengan laut biru di Santorini, tempat yang ideal untuk romantisme.</p>
+            </div>
+            <!-- Kyoto -->
+            <div class="destination-card">
+                <img src="images/Kyoto.jpg" alt="Kyoto">
+                <h3>Kyoto, Jepang</h3>
+                <p>Rasakan nuansa tradisional Jepang di Kyoto dengan kuil-kuil kuno dan hutan bambu yang damai.</p>
+            </div>
+            <!-- Petra -->
+            <div class="destination-card">
+                <img src="images/ Zanzibar.jpg" alt="Petra">
+                <h3>Zanzibar, Tanzania</h3>
+                <p>Temukan keajaiban arsitektur kuno yang terukir di bebatuan di Petra.</p>
+            </div>
+            <!-- Bangkok -->
+            <div class="destination-card">
+                <img src="images/Bangkook.jpg" alt="Bangkok">
+                <h3>Bangkok, Thailand</h3>
+                <p>Jelajahi ibu kota Thailand yang penuh warna, dengan kuil-kuil megah, pasar terapung, dan kuliner jalanan yang menggoda.</p>
+            </div>
+
+            <!-- Istanbul -->
+            <div class="destination-card">
+                <img src="images/ Istanbul.jpg" alt="Istanbul">
+                <h3>Istanbul, Turki</h3>
+                <p>Temukan keindahan Istanbul, kota yang menghubungkan Eropa dan Asia, dengan Hagia Sophia, Grand Bazaar, dan Bosphorus.</p>
+            </div>
+
+            <!-- Amsterdam -->
+            <div class="destination-card">
+                <img src="images/Amsterdam.jpg" alt="Amsterdam">
+                <h3>Amsterdam, Belanda</h3>
+                <p>Jelajahi kota Amsterdam yang terkenal dengan kanal-kanalnya, museum seni, dan suasana yang ramah pesepeda.</p>
+            </div>
+
+            <!-- Rio de Janeiro -->
+            <div class="destination-card">
+                <img src="images/Rio de Janeiro.jpg" alt="Rio de Janeiro">
+                <h3>Rio de Janeiro, Brasil</h3>
+                <p>Kunjungi Rio yang penuh semangat dengan pantai Copacabana, Patung Kristus Penebus, dan Karnaval yang terkenal.</p>
+            </div>
+
+            <!-- Machu Picchu -->
+            <div class="destination-card">
+                <img src="images/Machu Picchu.jpg" alt="Machu Picchu">
+                <h3>Machu Picchu, Peru</h3>
+                <p>Temukan misteri dan keindahan situs kuno Inca di pegunungan Peru, Machu Picchu.</p>
+            </div>
+
+            <!-- Bora Bora -->
+            <div class="destination-card">
+                <img src="images/Bora Bora.jpg" alt="Bora Bora">
+                <h3>Bora Bora, Polinesia Prancis</h3>
+                <p>Rasakan kemewahan tropis di Bora Bora dengan bungalow di atas air dan air laut yang jernih.</p>
+            </div>
+
+            <!-- Cappadocia -->
+            <div class="destination-card">
+                <img src="images/Cappadocia.jpg" alt="Cappadocia">
+                <h3>Cappadocia, Turki</h3>
+                <p>Rasakan keajaiban balon udara panas yang melayang di atas lanskap batu unik dan gua-gua kuno di Cappadocia.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; Travel Planner © 2025 | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // Tambahkan efek scroll pada header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rencana Tersimpan - TravelEase</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Gaya CSS untuk halaman Saved Plan */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f0f4f8;
+            color: #333;
+            box-sizing: border-box;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #438dc2;
+            padding: 15px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            color: white;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffd700;
+        }
+
+        .saved-plan-section {
+            padding: 50px 20px;
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+        }
+
+        .saved-plan-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .plan-details {
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .plan-details strong {
+            color: #438dc2;
+        }
+
+        .back-btn,
+        .edit-btn {
+            display: flex;
+            align-items: center;
+            font-size: 1.2rem;
+            color: #438dc2;
+            cursor: pointer;
+            margin-bottom: 20px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .back-btn:hover,
+        .edit-btn:hover {
+            color: #3678a3;
+        }
+
+        .back-btn i,
+        .edit-btn i {
+            margin-right: 10px;
+        }
+
+        .edit-btn {
+            margin-top: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #ffffff;
+            color: #555;
+            margin-top: 40px;
+            font-size: 0.9rem;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Travel Planner</h1>
+        </div>
+        <nav>
+            <a href="index.html">Beranda</a>
+            <a href="destinations.html">Destinasi</a>
+            <a href="plan.html">Rencana</a>
+            <a href="profile.html">Profil</a>
+        </nav>
+    </header>
+
+    <div class="saved-plan-section">
+        <a href="plan.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Kembali ke Rencana
+        </a>
+        <h2>Rencana Perjalanan Tersimpan</h2>
+        <div class="plan-details" id="planDetails">
+            <!-- Rencana yang tersimpan akan ditampilkan di sini -->
+        </div>
+        <a href="plan.html" class="edit-btn">
+            <i class="fas fa-edit"></i> Ganti Rencana
+        </a>
+        <a href="javascript:void(0)" class="edit-btn" onclick="deletePlan()">
+            <i class="fas fa-trash-alt"></i> Hapus Rencana
+        </a>
+    </div>
+
+    <footer>
+        <p>&copy; Travel Planner © 2025 | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // Ambil data rencana perjalanan dari localStorage
+        const savedPlan = JSON.parse(localStorage.getItem('travelPlan'));
+
+        if (savedPlan) {
+            const planDetails = document.getElementById("planDetails");
+            planDetails.innerHTML = `
+                <p><strong>Destinasi:</strong> ${savedPlan.destination}</p>
+                <p><strong>Tanggal Mulai:</strong> ${savedPlan.startDate}</p>
+                <p><strong>Tanggal Selesai:</strong> ${savedPlan.endDate}</p>
+                <p><strong>Catatan:</strong> ${savedPlan.notes}</p>
+            `;
+        } else {
+            // Jika tidak ada data yang disimpan
+            document.getElementById("planDetails").innerHTML = "<p>Rencana perjalanan tidak ditemukan.</p>";
+        }
+
+        // Fungsi untuk menghapus rencana
+        function deletePlan() {
+            localStorage.removeItem('travelPlan');
+            alert("Rencana perjalanan berhasil dihapus!");
+            window.location.href = 'plan.html'; // Kembali ke halaman rencana
+        }
+    </script>
+    
+    <!-- Tambahkan Font Awesome untuk ikon -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>

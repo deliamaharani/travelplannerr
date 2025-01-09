@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelEase - Login</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(to bottom, #81bae2, #ffffff);
+        }
+
+        .login-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .login-container h2 {
+            font-size: 2rem;
+            color: #438dc2;
+            margin-bottom: 20px;
+        }
+
+        .login-container form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .login-container input[type="email"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #438dc2;
+            border-radius: 25px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .login-container button {
+            background-color: #438dc2;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-container button:hover {
+            background-color: #3678a3;
+        }
+
+        .social-login {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-login button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .social-login button:hover {
+            transform: scale(1.1);
+        }
+
+        .social-login img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .login-container .register-link {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .login-container .register-link a {
+            color: #438dc2;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .login-container .register-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login ke TravelEase</h2>
+        <form id="loginForm">
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <div class="social-login">
+            <button>
+                <img src="images/google-icon.png" alt="Google">
+            </button>
+            <button>
+                <img src="images/facebook-icon.png" alt="Facebook">
+            </button>
+        </div>
+        <p class="register-link">
+            Belum punya akun? <a href="register.html">Daftar di sini</a>
+        </p>
+    </div>
+
+    <script>
+        // Fungsi untuk menangani login
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Mencegah form mengirimkan data secara default
+
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            // Lakukan validasi (ini contoh dasar, sesuaikan dengan aplikasi nyata)
+            if (email && password) {
+                // Menyimpan status login di localStorage
+                localStorage.setItem("userLoggedIn", email); // Bisa simpan email atau ID pengguna
+
+                // Alihkan ke halaman beranda setelah login sukses
+                window.location.href = "index.html"; // Ganti dengan URL halaman beranda Anda
+            } else {
+                alert("Email dan password harus diisi!");
+            }
+        });
+    </script>
+</body>
+</html>
